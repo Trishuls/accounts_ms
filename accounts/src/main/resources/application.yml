@@ -1,0 +1,28 @@
+spring:
+  profiles:
+    active: staging
+  application:
+    name: accounts
+  port: 8080
+  datasource:
+    url: jdbc:h2:mem:testdb
+    username: ts
+    password: ''
+    driverClassName: org.h2.Driver
+  h2:
+    console:
+      enable: true
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: none
+      show-sql: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      base-path: /actuator
+    health:
+      show-details: "always"
